@@ -3805,14 +3805,15 @@ class Assignment_System {
 class Mistake1_Demo {
     public void demonstrate() {
         // ❌ Wrong thinking
-        Student studentRef;  // You created a REFERENCE, not a student
-                             // studentRef is null (points to nothing)
+        Student studentRef = null;  // You created a REFERENCE, not a student
+        System.out.println("Empty reference: " + studentRef);  // studentRef is null
         
         // ✅ Correct
         Student student = new Student();  // NOW you created an object
         student.name = "Alice";
         student.age = 20;
         student.gpa = 3.8;
+        student.study();  // Actually use the student
     }
 }
 
@@ -4512,6 +4513,8 @@ public class JavaOOpGuide {
         System.out.println("-".repeat(80));
         BankAccount_Static acc1 = new BankAccount_Static("John", 1000);
         BankAccount_Static acc2 = new BankAccount_Static("Jane", 2000);
+        System.out.println("Account 1 holder: " + acc1.accountHolder);
+        System.out.println("Account 2 holder: " + acc2.accountHolder);
         System.out.println("Total accounts: " + BankAccount_Static.totalAccounts);
         System.out.println("Interest rate: " + BankAccount_Static.interestRate);
         
